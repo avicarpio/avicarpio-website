@@ -1,19 +1,33 @@
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Download01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ChartRadarDefault } from "./chartRadarDefault"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
+   <div className="flex min-h-svh w-full flex-col items-center justify-center p-6">
+    <div
+      className="flex w-full max-w-md min-w-0 flex-col gap-4 text-center text-sm leading-loose"
+    >
+      <div>
+        <h1 className="font-bold">Àlex Vicente Carpio</h1>
+        <p>Full Stack Software Engineer</p>
+        <a href="/Profile.pdf" download>
+          <Button variant="outline">
+            Download CV
+            <HugeiconsIcon icon={Download01Icon} className="h-4 w-4" />
+          </Button>
+        </a>
+        <div className="pt-4 pb-3">
+          <Badge variant="default">Experience</Badge>
         </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
+        <ChartRadarDefault  />
+        <div className="pt-4 pb-3">
+          <Badge variant="default">Portfolio</Badge>
         </div>
       </div>
     </div>
+  </div>
   )
 }
