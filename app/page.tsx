@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Download01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { ChartRadarDefault } from "./chartRadarDefault"
 import { Card, CardContent } from "@/components/ui/card"
@@ -218,44 +217,52 @@ const navLinks = [
   { label: "Portfolio", href: "#portfolio" },
 ]
 
+const languages = [
+  { name: "Català", level: "Native" },
+  { name: "Español", level: "Native" },
+  { name: "English", level: "Professional" },
+  { name: "Français", level: "Elementary" },
+  { name: "中文", level: "Beginner" },
+]
+
 export default function Page() {
   return (
     <div className="relative flex min-h-svh w-full flex-col items-center bg-gradient-to-b from-background via-muted/20 to-background">
       {/* Sticky Navigation */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
-          <a href="#top" className="text-base font-semibold tracking-tight">
+        <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4 sm:px-6">
+          <a href="#top" className="text-sm sm:text-base font-semibold tracking-tight shrink-0">
             Àlex Vicente
           </a>
-          <nav className="flex items-center gap-1">
+          <nav className="flex items-center gap-0.5 sm:gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-md px-2 py-1.5 text-xs sm:text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 {link.label}
               </a>
             ))}
-            <div className="ml-2 h-4 w-px bg-border" />
+            <div className="ml-1 sm:ml-2 h-4 w-px bg-border" />
             <ThemeToggle />
           </nav>
         </div>
       </header>
 
-      <div className="flex w-full max-w-3xl min-w-0 flex-col gap-24 text-base leading-relaxed px-6 pb-20">
+      <div className="flex w-full max-w-3xl min-w-0 flex-col gap-16 md:gap-24 text-base leading-relaxed px-4 sm:px-6 pb-20">
         {/* Hero */}
-        <section id="top" className="flex flex-col items-center gap-5 text-center pt-16">
+        <section id="top" className="flex flex-col items-center gap-4 sm:gap-5 text-center pt-10 md:pt-16">
           <FadeIn>
-            <h1 className="text-4xl font-bold tracking-tight">Àlex Vicente Carpio</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Àlex Vicente Carpio</h1>
           </FadeIn>
           <FadeIn delay={100}>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base sm:text-lg text-muted-foreground">
               Software Engineer at Watchity
             </p>
           </FadeIn>
           <FadeIn delay={200}>
-            <p className="max-w-lg text-muted-foreground">
+            <p className="max-w-lg text-sm sm:text-base text-muted-foreground">
               Specialized in Unity and Frontend development. I build robust, engaging
               applications and thrive on tackling challenging projects to push boundaries.
             </p>
@@ -263,7 +270,7 @@ export default function Page() {
           <FadeIn delay={300}>
             <div className="flex flex-wrap justify-center gap-2 pt-2">
               <a href="mailto:alexvicarpio@gmail.com">
-                <Button variant="outline" size="sm" className="rounded-full">
+                <Button variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 sm:h-9 sm:w-auto sm:px-3">
                   <Mail className="h-4 w-4" />
                   <span className="sr-only">Email</span>
                 </Button>
@@ -273,7 +280,7 @@ export default function Page() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" size="sm" className="rounded-full">
+                <Button variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 sm:h-9 sm:w-auto sm:px-3">
                   <LinkedinIcon className="h-4 w-4" />
                   <span className="sr-only">LinkedIn</span>
                 </Button>
@@ -283,30 +290,25 @@ export default function Page() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" size="sm" className="rounded-full">
+                <Button variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 sm:h-9 sm:w-auto sm:px-3">
                   <GithubIcon className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </a>
-              <a href="/Profile.pdf" download>
-                <Button variant="outline" size="sm" className="rounded-full">
-                  Download CV
-                  <HugeiconsIcon icon={Download01Icon} className="h-4 w-4" />
-                </Button>
-              </a>
+
             </div>
           </FadeIn>
         </section>
 
         {/* Quote */}
-        <section className="w-full">
+        <section className="w-full py-4">
           <FadeIn>
             <div className="relative mx-auto max-w-lg text-center">
               <div className="absolute -top-6 left-1/2 h-px w-12 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-              <blockquote className="text-xl font-medium italic leading-relaxed text-foreground/90">
+              <blockquote className="text-lg sm:text-xl font-medium italic leading-relaxed text-foreground/90">
                 “The right man in the wrong place can make all the difference in the world.”
               </blockquote>
-              <p className="pt-3 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              <p className="pt-3 text-xs sm:text-sm font-medium uppercase tracking-widest text-muted-foreground">
                 — G-Man, Half-Life
               </p>
               <div className="absolute -bottom-6 left-1/2 h-px w-12 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -317,24 +319,24 @@ export default function Page() {
         {/* Experience */}
         <section id="experience" className="w-full">
           <FadeIn>
-            <div className="pb-10 text-center">
+            <div className="pb-8 sm:pb-10 text-center">
               <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
                 Experience
               </Badge>
             </div>
           </FadeIn>
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-10 sm:gap-12">
             {experiences.map((exp, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <div className="relative pl-8 border-l border-muted-foreground/15">
+                <div className="relative pl-6 sm:pl-8 border-l border-muted-foreground/15">
                   <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-background" />
                   <div className="flex flex-col gap-1.5">
-                    <h3 className="text-lg font-semibold">{exp.title}</h3>
+                    <h3 className="text-base sm:text-lg font-semibold">{exp.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {exp.company} — {exp.location}
                     </p>
-                    <p className="text-sm font-medium text-primary/80">{exp.period}</p>
-                    <p className="text-base text-muted-foreground pt-1 leading-relaxed">
+                    <p className="text-xs sm:text-sm font-medium text-primary/80">{exp.period}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground pt-1 leading-relaxed">
                       {exp.description}
                     </p>
                   </div>
@@ -347,7 +349,7 @@ export default function Page() {
         {/* Skills */}
         <section id="skills" className="w-full">
           <FadeIn>
-            <div className="pb-10 text-center">
+            <div className="pb-8 sm:pb-10 text-center">
               <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
                 Skills
               </Badge>
@@ -357,7 +359,7 @@ export default function Page() {
             <ChartRadarDefault />
           </FadeIn>
           <FadeIn delay={200}>
-            <div className="flex flex-wrap justify-center gap-2 pt-10">
+            <div className="flex flex-wrap justify-center gap-2 pt-8 sm:pt-10">
               <Badge variant="secondary" className="rounded-full px-3 py-1">C#</Badge>
               <Badge variant="secondary" className="rounded-full px-3 py-1">Unity</Badge>
               <Badge variant="secondary" className="rounded-full px-3 py-1">Angular</Badge>
@@ -379,7 +381,7 @@ export default function Page() {
         {/* Portfolio / Proud Works */}
         <section id="portfolio" className="w-full">
           <FadeIn>
-            <div className="pb-10 text-center">
+            <div className="pb-8 sm:pb-10 text-center">
               <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
                 Proud Works
               </Badge>
@@ -387,7 +389,7 @@ export default function Page() {
           </FadeIn>
 
           {/* Featured */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5 sm:gap-6">
             {featuredProjects.map((project, i) => {
               const Icon = project.icon
               return (
@@ -403,29 +405,29 @@ export default function Page() {
                       className={`h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:scale-[1.01] ${project.borderAccent}`}
                     >
                       <CardContent className="flex flex-col gap-3">
-                        <div className="flex items-start justify-between gap-3">
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-3">
                           <div className="flex items-center gap-2.5">
                             <div className={`rounded-lg bg-muted p-1.5 ${project.accent}`}>
                               <Icon className="h-4 w-4" />
                             </div>
-                            <div>
-                              <h3 className="font-semibold text-base transition-colors group-hover:text-primary">
+                            <div className="min-w-0">
+                              <h3 className="font-semibold text-sm sm:text-base transition-colors group-hover:text-primary truncate">
                                 {project.name}
                               </h3>
-                              <p className={`text-xs font-medium uppercase tracking-wide ${project.accent}`}>
+                              <p className={`text-[10px] sm:text-xs font-medium uppercase tracking-wide ${project.accent}`}>
                                 {project.tagline}
                               </p>
                             </div>
                           </div>
                           {project.stars ? (
-                            <div className="flex items-center gap-1 text-sm text-muted-foreground shrink-0">
+                            <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground shrink-0">
                               <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
                               {project.stars}
                             </div>
                           ) : null}
                         </div>
 
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                           {project.description}
                         </p>
 
@@ -433,7 +435,7 @@ export default function Page() {
                           {project.highlights.map((h) => (
                             <li
                               key={h}
-                              className="flex items-start gap-2 text-sm text-muted-foreground"
+                              className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground"
                             >
                               <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${project.accent.replace("text-", "bg-")}`} />
                               <span className="leading-relaxed">{h}</span>
@@ -443,14 +445,14 @@ export default function Page() {
 
                         {project.press ? (
                           <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                            <span className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-muted-foreground">
                               Press:
                             </span>
                             {project.press.map((p) => (
                               <Badge
                                 key={p}
                                 variant="secondary"
-                                className="text-[10px] h-4 rounded-full"
+                                className="text-[9px] sm:text-[10px] h-4 rounded-full"
                               >
                                 {p}
                               </Badge>
@@ -463,7 +465,7 @@ export default function Page() {
                             <Badge
                               key={t}
                               variant="outline"
-                              className="text-xs h-5 rounded-full font-medium"
+                              className="text-[10px] sm:text-xs h-5 rounded-full font-medium"
                             >
                               {t}
                             </Badge>
@@ -480,8 +482,8 @@ export default function Page() {
 
           {/* More Projects */}
           <FadeIn delay={100}>
-            <div className="pt-10 pb-6 text-center">
-              <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-xs uppercase tracking-wider">
+            <div className="pt-8 sm:pt-10 pb-4 sm:pb-6 text-center">
+              <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-[10px] sm:text-xs uppercase tracking-wider">
                 More Projects
               </Badge>
             </div>
@@ -501,17 +503,17 @@ export default function Page() {
                   >
                     <CardContent className="flex flex-col gap-2">
                       <div className="flex items-center justify-between">
-                        <h3 className="font-medium text-sm truncate pr-2 transition-colors group-hover:text-primary">
+                        <h3 className="font-medium text-xs sm:text-sm truncate pr-2 transition-colors group-hover:text-primary">
                           {project.name}
                         </h3>
                         {project.stars ? (
-                          <span className="flex items-center gap-0.5 text-xs text-muted-foreground shrink-0">
+                          <span className="flex items-center gap-0.5 text-[10px] sm:text-xs text-muted-foreground shrink-0">
                             <Star className="h-2.5 w-2.5 fill-amber-400 text-amber-400" />
                             {project.stars}
                           </span>
                         ) : null}
                       </div>
-                      <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+                      <p className="text-[11px] sm:text-xs text-muted-foreground line-clamp-3 leading-relaxed">
                         {project.description}
                       </p>
                       <div className="flex flex-wrap gap-1 pt-1">
@@ -519,7 +521,7 @@ export default function Page() {
                           <Badge
                             key={t}
                             variant="outline"
-                            className="text-[10px] h-4 rounded-full"
+                            className="text-[9px] sm:text-[10px] h-4 rounded-full"
                           >
                             {t}
                           </Badge>
@@ -536,13 +538,13 @@ export default function Page() {
         {/* Education & Certifications */}
         <section className="w-full">
           <FadeIn>
-            <div className="pb-10 text-center">
+            <div className="pb-8 sm:pb-10 text-center">
               <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
                 Education & Certifications
               </Badge>
             </div>
           </FadeIn>
-          <div className="flex flex-col gap-8 text-base">
+          <div className="flex flex-col gap-6 sm:gap-8 text-sm sm:text-base">
             <FadeIn delay={100}>
               <div className="flex flex-col gap-1">
                 <h3 className="font-semibold">
@@ -570,48 +572,31 @@ export default function Page() {
         {/* Languages */}
         <section className="w-full">
           <FadeIn>
-            <div className="pb-10 text-center">
+            <div className="pb-8 sm:pb-10 text-center">
               <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
                 Languages
               </Badge>
             </div>
           </FadeIn>
           <FadeIn delay={100}>
-            <div className="flex flex-wrap justify-center gap-x-5 gap-y-3 text-base text-muted-foreground">
-              <span>
-                Català{" "}
-                <span className="text-sm text-muted-foreground/60">(Native)</span>
-              </span>
-              <span className="text-muted-foreground/30">·</span>
-              <span>
-                Español{" "}
-                <span className="text-sm text-muted-foreground/60">(Native)</span>
-              </span>
-              <span className="text-muted-foreground/30">·</span>
-              <span>
-                English{" "}
-                <span className="text-sm text-muted-foreground/60">
-                  (Professional)
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-2 text-sm sm:text-base text-muted-foreground">
+              {languages.map((lang, i, arr) => (
+                <span key={lang.name} className="inline-flex items-center gap-x-4 sm:gap-x-2">
+                  <span>
+                    {lang.name}{" "}
+                    <span className="text-xs sm:text-sm text-muted-foreground/60">({lang.level})</span>
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span className="text-muted-foreground/30 hidden sm:inline">·</span>
+                  )}
                 </span>
-              </span>
-              <span className="text-muted-foreground/30">·</span>
-              <span>
-                Français{" "}
-                <span className="text-sm text-muted-foreground/60">
-                  (Elementary)
-                </span>
-              </span>
-              <span className="text-muted-foreground/30">·</span>
-              <span>
-                中文{" "}
-                <span className="text-sm text-muted-foreground/60">(Beginner)</span>
-              </span>
+              ))}
             </div>
           </FadeIn>
         </section>
 
         {/* Footer */}
-        <footer className="text-center text-sm text-muted-foreground">
+        <footer className="text-center text-xs sm:text-sm text-muted-foreground">
           <FadeIn>
             <p>alexvicarpio@gmail.com</p>
             <p className="pt-1">
