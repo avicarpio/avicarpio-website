@@ -20,17 +20,17 @@ import {
 } from "@/components/ui/chart"
 
 const chartData = [
-  { skill: "Frontend", level: 100 },
+  { skill: "Unity / C#", level: 95 },
+  { skill: "Game Dev", level: 90 },
+  { skill: "Frontend", level: 85 },
   { skill: "Backend", level: 70 },
-  { skill: "UI/UX", level: 65 },
-  { skill: "DevOps", level: 70 },
-  { skill: "Unity", level: 90 },
-  { skill: "Node.js", level: 80 },
+  { skill: "DevOps", level: 65 },
+  { skill: "Mobile", level: 50 },
 ]
 
 const chartConfig = {
   level: {
-    label: "Experience",
+    label: "Proficiency",
     color: "var(--chart-1)",
   },
 } satisfies ChartConfig
@@ -41,9 +41,9 @@ export function ChartRadarDefault() {
   return (
     <Card>
       <CardHeader className="items-center pb-4">
-        <CardTitle>Full Stack Proficiency</CardTitle>
+        <CardTitle>Technical Proficiency</CardTitle>
         <CardDescription>
-          Breaking down skills by technology area
+          Skills breakdown by domain
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-0">
