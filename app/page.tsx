@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { ChartRadarDefault } from "./chartRadarDefault"
 import { Card, CardContent } from "@/components/ui/card"
@@ -215,6 +216,7 @@ const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "App", href: "/cominggames" },
 ]
 
 const languages = [
@@ -313,6 +315,50 @@ export default function Page() {
               </p>
               <div className="absolute -bottom-6 left-1/2 h-px w-12 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
             </div>
+          </FadeIn>
+        </section>
+
+        {/* Latest / News */}
+        <section id="latest" className="w-full">
+          <FadeIn>
+            <div className="pb-8 sm:pb-10 text-center">
+              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
+                Latest
+              </Badge>
+            </div>
+          </FadeIn>
+          <FadeIn delay={100}>
+            <Link href="/cominggames" className="group block">
+              <Card className="transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:scale-[1.01] hover:border-primary/30">
+                <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/cominggames/icon.png"
+                    alt="ComingGames icon"
+                    className="h-16 w-16 shrink-0 rounded-2xl ring-1 ring-foreground/10"
+                  />
+                  <div className="flex min-w-0 flex-col gap-1">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-rose-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-rose-600 dark:text-rose-400">
+                        New app
+                      </span>
+                      <span className="text-[11px] text-muted-foreground">Android · Kotlin</span>
+                    </div>
+                    <h3 className="text-base font-semibold transition-colors group-hover:text-primary">
+                      ComingGames — never miss a game launch
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed sm:text-sm">
+                      I built an Android app to track upcoming game releases. Browse what&apos;s
+                      coming, set reminders and get notified a week before, the day before and on
+                      launch day.
+                    </p>
+                  </div>
+                  <span className="ml-auto hidden shrink-0 items-center gap-1 text-xs font-medium text-primary sm:flex">
+                    Learn more →
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
           </FadeIn>
         </section>
 
