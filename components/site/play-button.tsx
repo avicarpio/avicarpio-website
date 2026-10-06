@@ -37,12 +37,14 @@ export function PlayButton({
   className?: string
 }) {
   const small = size === "sm"
+  // White, like Google's own badge on a dark page: the four colours of the logo stay
+  // visible (on the brand pink, its red half disappeared) and it stands out anywhere.
   const content = (
     <>
       <PlayLogo className={small ? "h-4 w-4" : "h-6 w-6"} />
       <span className="flex flex-col items-start leading-none">
         {!small && (
-          <span className="text-[10px] font-medium tracking-wide text-white/70 uppercase">
+          <span className="text-[10px] font-semibold tracking-wide text-[var(--brand-night)]/60 uppercase">
             {COMING_GAMES_ON_PLAY ? "Get it on" : "Coming soon to"}
           </span>
         )}
@@ -57,10 +59,10 @@ export function PlayButton({
     </>
   )
   const classes = cn(
-    "inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[var(--brand-pink)] to-[var(--brand-red)] text-white shadow-[0_10px_40px_-10px_var(--brand-red)] transition-all",
+    "inline-flex items-center gap-3 rounded-full bg-white text-[var(--brand-night)] shadow-[0_10px_40px_-12px_rgba(255,255,255,0.45)] transition-all",
     small ? "h-10 px-4" : "h-14 px-6",
     COMING_GAMES_ON_PLAY
-      ? "hover:scale-[1.03] hover:shadow-[0_14px_50px_-8px_var(--brand-red)]"
+      ? "hover:scale-[1.03] hover:shadow-[0_14px_50px_-10px_rgba(255,255,255,0.6)]"
       : "cursor-default",
     className
   )

@@ -496,7 +496,7 @@ export default function ComingGamesPage() {
                   Download Coming Games for free and start following the games
                   you can&apos;t wait for.
                 </p>
-                <PlayButton className="bg-[var(--brand-night)] bg-none shadow-2xl hover:bg-black" />
+                <PlayButton className="shadow-2xl" />
               </div>
             </div>
           </FadeIn>
