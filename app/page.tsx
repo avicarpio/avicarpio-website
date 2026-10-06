@@ -1,12 +1,22 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Briefcase,
+  Code2,
+  GraduationCap,
+  Mail,
+  MapPin,
+  Star,
+} from "lucide-react"
 import { ChartRadarDefault } from "./chartRadarDefault"
-import { Card, CardContent } from "@/components/ui/card"
-import { Mail, ExternalLink, Star, Code2 } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { FadeIn } from "@/components/fade-in"
+import { Backdrop } from "@/components/site/backdrop"
+import { SiteFooter } from "@/components/site/footer"
+import { SiteNav } from "@/components/site/nav"
+import { Phone } from "@/components/site/phone"
+import { PlayButton } from "@/components/site/play-button"
+import { SectionHeading } from "@/components/site/section-heading"
 
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -115,7 +125,7 @@ const featuredProjects = [
     tech: ["FMOD Studio", "Reverse Engineering"],
     stars: 2,
     icon: MusicIcon,
-    accent: "text-violet-600 dark:text-violet-400",
+    accent: "text-violet-400",
     borderAccent: "hover:border-violet-500/30",
   },
   {
@@ -131,7 +141,7 @@ const featuredProjects = [
     tech: ["Node.js", "Puppeteer", "JavaScript"],
     stars: 4,
     icon: HeartIcon,
-    accent: "text-rose-600 dark:text-rose-400",
+    accent: "text-rose-400",
     borderAccent: "hover:border-rose-500/30",
   },
   {
@@ -147,7 +157,7 @@ const featuredProjects = [
     tech: ["Java", "OOP", "Algorithms"],
     stars: 1,
     icon: Code2,
-    accent: "text-sky-600 dark:text-sky-400",
+    accent: "text-sky-400",
     borderAccent: "hover:border-sky-500/30",
   },
   {
@@ -163,7 +173,7 @@ const featuredProjects = [
     tech: ["Lua", "Factorio API"],
     stars: 1,
     icon: TimerIcon,
-    accent: "text-amber-600 dark:text-amber-400",
+    accent: "text-amber-400",
     borderAccent: "hover:border-amber-500/30",
   },
 ]
@@ -212,11 +222,10 @@ const experiences = [
 ]
 
 const navLinks = [
-  { label: "About", href: "#top" },
+  { label: "Coming Games", href: "#app" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "App", href: "/cominggames" },
 ]
 
 const languages = [
@@ -227,162 +236,255 @@ const languages = [
   { name: "中文", level: "Beginner" },
 ]
 
+const skills = [
+  "C#",
+  "Unity",
+  "Angular",
+  "NgRx",
+  "JavaScript",
+  "TypeScript",
+  "Kotlin",
+  "Python",
+  "Git",
+  "C++",
+  "Java",
+  "PHP",
+  "MySQL",
+  "Lua",
+  "Matlab",
+]
+
+const socials = [
+  { label: "Email", href: "mailto:alexvicarpio@gmail.com", icon: Mail },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/alex-vicente-carpio/",
+    icon: LinkedinIcon,
+  },
+  { label: "GitHub", href: "https://github.com/avicarpio", icon: GithubIcon },
+]
+
 export default function Page() {
   return (
-    <div className="relative flex min-h-svh w-full flex-col items-center bg-gradient-to-b from-background via-muted/20 to-background">
-      {/* Sticky Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4 sm:px-6">
-          <a href="#top" className="text-sm sm:text-base font-semibold tracking-tight shrink-0">
+    <div className="relative isolate flex min-h-svh w-full flex-col items-center overflow-x-clip bg-[var(--brand-night)] text-white">
+      <Backdrop />
+
+      <SiteNav
+        brand={
+          <a
+            href="#top"
+            className="flex items-center gap-2 font-semibold tracking-tight"
+          >
+            <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[var(--brand-pink)] to-[var(--brand-amber)]" />
             Àlex Vicente
           </a>
-          <nav className="flex items-center gap-0.5 sm:gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded-md px-2 py-1.5 text-xs sm:text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="ml-1 sm:ml-2 h-4 w-px bg-border" />
-            <ThemeToggle />
-          </nav>
-        </div>
-      </header>
+        }
+        links={navLinks}
+        action={
+          <Link
+            href="/cominggames"
+            className="inline-flex h-10 items-center gap-2 rounded-full bg-white/[0.06] pr-4 pl-1.5 text-sm font-medium transition-colors hover:bg-white/10"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/cominggames/icon.png"
+              alt=""
+              className="h-7 w-7 rounded-lg"
+            />
+            <span className="hidden sm:inline">New app</span>
+            <ArrowUpRight className="h-4 w-4 text-white/60" />
+          </Link>
+        }
+      />
 
-      <div className="flex w-full max-w-3xl min-w-0 flex-col gap-16 md:gap-24 text-base leading-relaxed px-4 sm:px-6 pb-20">
+      <main className="flex w-full flex-col items-center">
         {/* Hero */}
-        <section id="top" className="flex flex-col items-center gap-4 sm:gap-5 text-center pt-10 md:pt-16">
-          <FadeIn>
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Àlex Vicente Carpio</h1>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <p className="text-base sm:text-lg text-muted-foreground">
-              Software Engineer at Watchity
-            </p>
-          </FadeIn>
-          <FadeIn delay={200}>
-            <p className="max-w-lg text-sm sm:text-base text-muted-foreground">
-              Specialized in Unity and Frontend development. I build robust, engaging
-              applications and thrive on tackling challenging projects to push boundaries.
-            </p>
-          </FadeIn>
-          <FadeIn delay={300}>
-            <div className="flex flex-wrap justify-center gap-2 pt-2">
-              <a href="mailto:alexvicarpio@gmail.com">
-                <Button variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 sm:h-9 sm:w-auto sm:px-3">
-                  <Mail className="h-4 w-4" />
-                  <span className="sr-only">Email</span>
-                </Button>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/alex-vicente-carpio/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 sm:h-9 sm:w-auto sm:px-3">
-                  <LinkedinIcon className="h-4 w-4" />
-                  <span className="sr-only">LinkedIn</span>
-                </Button>
-              </a>
-              <a
-                href="https://github.com/avicarpio"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="sm" className="rounded-full h-10 w-10 p-0 sm:h-9 sm:w-auto sm:px-3">
-                  <GithubIcon className="h-4 w-4" />
-                  <span className="sr-only">GitHub</span>
-                </Button>
-              </a>
-
-            </div>
-          </FadeIn>
-        </section>
-
-        {/* Quote */}
-        <section className="w-full py-4">
-          <FadeIn>
-            <div className="relative mx-auto max-w-lg text-center">
-              <div className="absolute -top-6 left-1/2 h-px w-12 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-              <blockquote className="text-lg sm:text-xl font-medium italic leading-relaxed text-foreground/90">
-                “The right man in the wrong place can make all the difference in the world.”
-              </blockquote>
-              <p className="pt-3 text-xs sm:text-sm font-medium uppercase tracking-widest text-muted-foreground">
-                — G-Man, Half-Life
+        <section
+          id="top"
+          className="mx-auto grid w-full max-w-6xl items-center gap-14 px-6 pt-20 pb-24 md:pt-28 lg:grid-cols-[1.15fr_1fr]"
+        >
+          <div className="flex flex-col items-center gap-7 text-center lg:items-start lg:text-left">
+            <FadeIn>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/70">
+                <MapPin className="h-3.5 w-3.5 text-[var(--brand-pink)]" />{" "}
+                Barcelona · Software Engineer at Watchity
+              </span>
+            </FadeIn>
+            <FadeIn delay={80}>
+              <h1 className="text-5xl leading-[1.02] font-extrabold tracking-tight text-balance sm:text-6xl lg:text-7xl">
+                Àlex Vicente <span className="text-gradient">Carpio</span>
+              </h1>
+            </FadeIn>
+            <FadeIn delay={160}>
+              <p className="max-w-xl text-lg leading-relaxed text-pretty text-white/65 sm:text-xl">
+                Specialized in Unity and frontend development. I build robust,
+                engaging applications, and I thrive on challenging projects that
+                push boundaries: from game mods to my own Android app.
               </p>
-              <div className="absolute -bottom-6 left-1/2 h-px w-12 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-            </div>
-          </FadeIn>
-        </section>
+            </FadeIn>
+            <FadeIn delay={240}>
+              <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+                {socials.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-5 font-medium text-white/80 transition-colors hover:border-white/30 hover:bg-white/5 hover:text-white"
+                  >
+                    <Icon className="h-4 w-4" /> {label}
+                  </a>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
 
-        {/* Latest / News */}
-        <section id="latest" className="w-full">
-          <FadeIn>
-            <div className="pb-8 sm:pb-10 text-center">
-              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
-                Latest
-              </Badge>
-            </div>
-          </FadeIn>
-          <FadeIn delay={100}>
+          {/* The latest thing I made */}
+          <FadeIn delay={200}>
             <Link href="/cominggames" className="group block">
-              <Card className="transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:scale-[1.01] hover:border-primary/30">
-                <CardContent className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="gradient-border relative overflow-hidden p-6 transition-transform duration-500 group-hover:-translate-y-1">
+                <div className="absolute -top-20 -right-20 h-56 w-56 rounded-full bg-[var(--brand-red)]/25 blur-[70px]" />
+                <div className="relative flex items-center gap-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/cominggames/icon.png"
-                    alt="ComingGames icon"
-                    className="h-16 w-16 shrink-0 rounded-2xl ring-1 ring-foreground/10"
+                    alt="Coming Games icon"
+                    className="h-14 w-14 rounded-2xl shadow-lg"
                   />
-                  <div className="flex min-w-0 flex-col gap-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-rose-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-rose-600 dark:text-rose-400">
-                        New app
-                      </span>
-                      <span className="text-[11px] text-muted-foreground">Android · Kotlin</span>
-                    </div>
-                    <h3 className="text-base font-semibold transition-colors group-hover:text-primary">
-                      ComingGames — never miss a game launch
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed sm:text-sm">
-                      I built an Android app to track upcoming game releases. Browse what&apos;s
-                      coming, set reminders and get notified a week before, the day before and on
-                      launch day.
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold tracking-[0.16em] text-[var(--brand-amber)] uppercase">
+                      New · Out now
+                    </p>
+                    <p className="text-xl font-bold">Coming Games</p>
+                    <p className="text-sm text-white/55">
+                      Never miss a release day
                     </p>
                   </div>
-                  <span className="ml-auto hidden shrink-0 items-center gap-1 text-xs font-medium text-primary sm:flex">
-                    Learn more →
-                  </span>
-                </CardContent>
-              </Card>
+                  <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-white/40 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+                </div>
+                <div className="relative mt-6 grid grid-cols-2 gap-4">
+                  <Phone
+                    src="/cominggames/screens/home.webp"
+                    alt="Coming Games: upcoming games"
+                    priority
+                  />
+                  <Phone
+                    src="/cominggames/screens/detail.webp"
+                    alt="Coming Games: a game page"
+                    className="mt-10"
+                  />
+                </div>
+              </div>
             </Link>
           </FadeIn>
         </section>
 
-        {/* Experience */}
-        <section id="experience" className="w-full">
+        {/* Quote */}
+        <section className="mx-auto w-full max-w-4xl px-6 pb-24">
           <FadeIn>
-            <div className="pb-8 sm:pb-10 text-center">
-              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
-                Experience
-              </Badge>
+            <figure className="text-center">
+              <blockquote className="text-2xl leading-snug font-medium text-balance text-white/90 italic sm:text-3xl">
+                “The right man in the wrong place can make all the difference in
+                the world.”
+              </blockquote>
+              <figcaption className="mt-4 text-sm font-semibold tracking-[0.2em] text-white/40 uppercase">
+                G-Man, Half-Life
+              </figcaption>
+            </figure>
+          </FadeIn>
+        </section>
+
+        {/* Coming Games */}
+        <section id="app" className="mx-auto w-full max-w-6xl px-6 pb-28">
+          <FadeIn>
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#2a1230] via-[#160f26] to-[#0c0d18] p-8 sm:p-12">
+              <div className="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-[var(--brand-red)]/30 blur-[100px]" />
+              <div className="absolute -right-24 -bottom-32 h-80 w-80 rounded-full bg-[var(--brand-purple)]/30 blur-[100px]" />
+              <div className="relative grid items-center gap-12 md:grid-cols-[1.1fr_1fr]">
+                <div className="flex flex-col items-start gap-6">
+                  <SectionHeading
+                    align="left"
+                    eyebrow="My latest app"
+                    title={
+                      <>
+                        Coming Games is{" "}
+                        <span className="text-gradient">out now</span>
+                      </>
+                    }
+                    description="An Android app to follow every upcoming game on PlayStation, Xbox, Nintendo and PC, with reminders a week before, the day before and on launch day. Built from scratch in Kotlin and Jetpack Compose."
+                  />
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "Kotlin",
+                      "Jetpack Compose",
+                      "Room",
+                      "Paging",
+                      "Cloudflare Workers",
+                    ].map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs font-medium text-white/70"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                    <PlayButton />
+                    <Link
+                      href="/cominggames"
+                      className="inline-flex items-center gap-2 font-medium text-white/75 transition-colors hover:text-white"
+                    >
+                      Discover the app <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="relative mx-auto grid w-full max-w-md grid-cols-2 gap-4">
+                  <Phone
+                    src="/cominggames/screens/reminders.webp"
+                    alt="Coming Games: reminders"
+                  />
+                  <Phone
+                    src="/cominggames/screens/recap.webp"
+                    alt="Coming Games: weekly recap"
+                    className="mt-12"
+                  />
+                </div>
+              </div>
             </div>
           </FadeIn>
-          <div className="flex flex-col gap-10 sm:gap-12">
+        </section>
+
+        {/* Experience */}
+        <section
+          id="experience"
+          className="mx-auto w-full max-w-6xl px-6 pb-28"
+        >
+          <FadeIn>
+            <SectionHeading eyebrow="Experience" title="Where I've worked" />
+          </FadeIn>
+          <div className="mx-auto mt-14 flex max-w-3xl flex-col gap-4">
             {experiences.map((exp, i) => (
-              <FadeIn key={i} delay={i * 100}>
-                <div className="relative pl-6 sm:pl-8 border-l border-muted-foreground/15">
-                  <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-background" />
-                  <div className="flex flex-col gap-1.5">
-                    <h3 className="text-base sm:text-lg font-semibold">{exp.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {exp.company} — {exp.location}
+              <FadeIn key={exp.title + exp.period} delay={i * 100}>
+                <div className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-white/20">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--brand-pink)]/20 to-[var(--brand-purple)]/20 text-[var(--brand-pink)]">
+                    <Briefcase className="h-5 w-5" />
+                  </div>
+                  <div className="flex min-w-0 flex-1 flex-col gap-1">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                      <h3 className="text-lg font-semibold">{exp.title}</h3>
+                      <span className="text-sm font-medium text-[var(--brand-amber)]/90">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className="text-sm text-white/50">
+                      {exp.company} · {exp.location}
                     </p>
-                    <p className="text-xs sm:text-sm font-medium text-primary/80">{exp.period}</p>
-                    <p className="text-sm sm:text-base text-muted-foreground pt-1 leading-relaxed">
+                    <p className="pt-1 leading-relaxed text-white/70">
                       {exp.description}
                     </p>
                   </div>
@@ -393,264 +495,232 @@ export default function Page() {
         </section>
 
         {/* Skills */}
-        <section id="skills" className="w-full">
+        <section id="skills" className="mx-auto w-full max-w-6xl px-6 pb-28">
           <FadeIn>
-            <div className="pb-8 sm:pb-10 text-center">
-              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
-                Skills
-              </Badge>
-            </div>
+            <SectionHeading eyebrow="Skills" title="What I work with" />
           </FadeIn>
-          <FadeIn delay={100}>
-            <ChartRadarDefault />
-          </FadeIn>
-          <FadeIn delay={200}>
-            <div className="flex flex-wrap justify-center gap-2 pt-8 sm:pt-10">
-              <Badge variant="secondary" className="rounded-full px-3 py-1">C#</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Unity</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Angular</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">NgRx</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">JavaScript</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">TypeScript</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Python</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Git</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">C++</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Java</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">PHP</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">MySQL</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Lua</Badge>
-              <Badge variant="secondary" className="rounded-full px-3 py-1">Matlab</Badge>
-            </div>
-          </FadeIn>
+          <div className="mt-14 grid items-center gap-10 md:grid-cols-2">
+            <FadeIn delay={100}>
+              <ChartRadarDefault />
+            </FadeIn>
+            <FadeIn delay={200}>
+              <div className="flex flex-wrap justify-center gap-2.5 md:justify-start">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-[var(--brand-pink)]/40 hover:text-white"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
         </section>
 
-        {/* Portfolio / Proud Works */}
-        <section id="portfolio" className="w-full">
+        {/* Portfolio */}
+        <section id="portfolio" className="mx-auto w-full max-w-6xl px-6 pb-28">
           <FadeIn>
-            <div className="pb-8 sm:pb-10 text-center">
-              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
-                Proud Works
-              </Badge>
-            </div>
+            <SectionHeading eyebrow="Proud works" title="Things I've built" />
           </FadeIn>
-
-          {/* Featured */}
-          <div className="flex flex-col gap-5 sm:gap-6">
+          <div className="mt-14 grid gap-5 md:grid-cols-2">
             {featuredProjects.map((project, i) => {
               const Icon = project.icon
               return (
-                <FadeIn key={project.name} delay={i * 100}>
+                <FadeIn key={project.name} delay={(i % 2) * 100}>
                   <a
                     href={`https://github.com/avicarpio/${project.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block"
+                    className="group flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05]"
                   >
-                    <Card
-                      size="sm"
-                      className={`h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:scale-[1.01] ${project.borderAccent}`}
-                    >
-                      <CardContent className="flex flex-col gap-3">
-                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-3">
-                          <div className="flex items-center gap-2.5">
-                            <div className={`rounded-lg bg-muted p-1.5 ${project.accent}`}>
-                              <Icon className="h-4 w-4" />
-                            </div>
-                            <div className="min-w-0">
-                              <h3 className="font-semibold text-sm sm:text-base transition-colors group-hover:text-primary truncate">
-                                {project.name}
-                              </h3>
-                              <p className={`text-[10px] sm:text-xs font-medium uppercase tracking-wide ${project.accent}`}>
-                                {project.tagline}
-                              </p>
-                            </div>
-                          </div>
-                          {project.stars ? (
-                            <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground shrink-0">
-                              <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
-                              {project.stars}
-                            </div>
-                          ) : null}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.06] ${project.accent}`}
+                        >
+                          <Icon className="h-5 w-5" />
                         </div>
-
-                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                          {project.description}
-                        </p>
-
-                        <ul className="flex flex-col gap-1">
-                          {project.highlights.map((h) => (
-                            <li
-                              key={h}
-                              className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground"
-                            >
-                              <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${project.accent.replace("text-", "bg-")}`} />
-                              <span className="leading-relaxed">{h}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {project.press ? (
-                          <div className="flex flex-wrap items-center gap-1.5">
-                            <span className="text-[10px] sm:text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                              Press:
-                            </span>
-                            {project.press.map((p) => (
-                              <Badge
-                                key={p}
-                                variant="secondary"
-                                className="text-[9px] sm:text-[10px] h-4 rounded-full"
-                              >
-                                {p}
-                              </Badge>
-                            ))}
-                          </div>
-                        ) : null}
-
-                        <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                          {project.tech.map((t) => (
-                            <Badge
-                              key={t}
-                              variant="outline"
-                              className="text-[10px] sm:text-xs h-5 rounded-full font-medium"
-                            >
-                              {t}
-                            </Badge>
-                          ))}
-                          <ExternalLink className="ml-auto h-3.5 w-3.5 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-foreground" />
+                        <div className="min-w-0">
+                          <h3 className="truncate font-semibold transition-colors group-hover:text-white">
+                            {project.name}
+                          </h3>
+                          <p
+                            className={`text-xs font-semibold tracking-wider uppercase ${project.accent}`}
+                          >
+                            {project.tagline}
+                          </p>
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                      {project.stars ? (
+                        <span className="flex shrink-0 items-center gap-1 text-sm text-white/50">
+                          <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                          {project.stars}
+                        </span>
+                      ) : null}
+                    </div>
+                    <p className="text-sm leading-relaxed text-white/65">
+                      {project.description}
+                    </p>
+                    <ul className="flex flex-col gap-1.5">
+                      {project.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="flex items-start gap-2 text-sm text-white/60"
+                        >
+                          <span
+                            className={`mt-2 h-1 w-1 shrink-0 rounded-full ${project.accent.replace("text-", "bg-")}`}
+                          />
+                          <span className="leading-relaxed">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {project.press ? (
+                      <p className="text-xs text-white/45">
+                        <span className="font-semibold tracking-wider uppercase">
+                          Press:
+                        </span>{" "}
+                        {project.press.join(" · ")}
+                      </p>
+                    ) : null}
+                    <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-2">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-white/60"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                      <ArrowUpRight className="ml-auto h-4 w-4 text-white/30 transition-colors group-hover:text-white" />
+                    </div>
                   </a>
                 </FadeIn>
               )
             })}
           </div>
 
-          {/* More Projects */}
-          <FadeIn delay={100}>
-            <div className="pt-8 sm:pt-10 pb-4 sm:pb-6 text-center">
-              <Badge variant="secondary" className="rounded-full px-3 py-0.5 text-[10px] sm:text-xs uppercase tracking-wider">
-                More Projects
-              </Badge>
-            </div>
-          </FadeIn>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
             {moreProjects.map((project, i) => (
-              <FadeIn key={project.name} delay={i * 75}>
+              <FadeIn key={project.name} delay={i * 80}>
                 <a
                   href={`https://github.com/avicarpio/${project.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block"
+                  className="group flex h-full flex-col gap-2 rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-white/20"
                 >
-                  <Card
-                    size="sm"
-                    className="h-full transition-all duration-300 hover:shadow-md hover:shadow-primary/5 hover:scale-[1.02] hover:border-primary/20"
-                  >
-                    <CardContent className="flex flex-col gap-2">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-medium text-xs sm:text-sm truncate pr-2 transition-colors group-hover:text-primary">
-                          {project.name}
-                        </h3>
-                        {project.stars ? (
-                          <span className="flex items-center gap-0.5 text-[10px] sm:text-xs text-muted-foreground shrink-0">
-                            <Star className="h-2.5 w-2.5 fill-amber-400 text-amber-400" />
-                            {project.stars}
-                          </span>
-                        ) : null}
-                      </div>
-                      <p className="text-[11px] sm:text-xs text-muted-foreground line-clamp-3 leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1 pt-1">
-                        {project.tech.map((t) => (
-                          <Badge
-                            key={t}
-                            variant="outline"
-                            className="text-[9px] sm:text-[10px] h-4 rounded-full"
-                          >
-                            {t}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="truncate text-sm font-semibold">
+                      {project.name}
+                    </h3>
+                    {project.stars ? (
+                      <span className="flex shrink-0 items-center gap-1 text-xs text-white/50">
+                        <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
+                        {project.stars}
+                      </span>
+                    ) : null}
+                  </div>
+                  <p className="text-sm leading-relaxed text-white/55">
+                    {project.description}
+                  </p>
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-white/55"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </a>
               </FadeIn>
             ))}
           </div>
         </section>
 
-        {/* Education & Certifications */}
-        <section className="w-full">
+        {/* Education and languages */}
+        <section className="mx-auto grid w-full max-w-6xl gap-5 px-6 pb-28 md:grid-cols-2">
           <FadeIn>
-            <div className="pb-8 sm:pb-10 text-center">
-              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
-                Education & Certifications
-              </Badge>
-            </div>
-          </FadeIn>
-          <div className="flex flex-col gap-6 sm:gap-8 text-sm sm:text-base">
-            <FadeIn delay={100}>
-              <div className="flex flex-col gap-1">
-                <h3 className="font-semibold">
-                  Grau en Enginyeria Multimèdia — Menció en Videojocs
-                </h3>
-                <p className="text-muted-foreground">La Salle BCN — 2016 - 2021</p>
+            <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+              <div className="flex items-center gap-3">
+                <GraduationCap className="h-5 w-5 text-[var(--brand-pink)]" />
+                <h2 className="text-xl font-bold">
+                  Education & certifications
+                </h2>
               </div>
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="flex flex-col gap-1">
-                <h3 className="font-semibold">Batxillerat Tecnològic</h3>
-                <p className="text-muted-foreground">
-                  STUCOM Centre d&apos;Estudis — 2014 - 2016
-                </p>
+              <div className="mt-6 flex flex-col gap-5">
+                <div>
+                  <h3 className="font-semibold">
+                    Grau en Enginyeria Multimèdia — Menció en Videojocs
+                  </h3>
+                  <p className="text-sm text-white/50">
+                    La Salle BCN · 2016 – 2021
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold">Batxillerat Tecnològic</h3>
+                  <p className="text-sm text-white/50">
+                    STUCOM Centre d&apos;Estudis · 2014 – 2016
+                  </p>
+                </div>
+                <span className="w-fit rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-white/70">
+                  CCNA 1
+                </span>
               </div>
-            </FadeIn>
-            <FadeIn delay={300}>
-              <div className="flex flex-wrap justify-center gap-2 pt-2">
-                <Badge variant="outline" className="rounded-full px-3 py-1">CCNA 1</Badge>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* Languages */}
-        <section className="w-full">
-          <FadeIn>
-            <div className="pb-8 sm:pb-10 text-center">
-              <Badge variant="default" className="rounded-full px-4 py-1 text-xs uppercase tracking-wider">
-                Languages
-              </Badge>
             </div>
           </FadeIn>
           <FadeIn delay={100}>
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-2 text-sm sm:text-base text-muted-foreground">
-              {languages.map((lang, i, arr) => (
-                <span key={lang.name} className="inline-flex items-center gap-x-4 sm:gap-x-2">
-                  <span>
-                    {lang.name}{" "}
-                    <span className="text-xs sm:text-sm text-muted-foreground/60">({lang.level})</span>
-                  </span>
-                  {i < arr.length - 1 && (
-                    <span className="text-muted-foreground/30 hidden sm:inline">·</span>
-                  )}
-                </span>
-              ))}
+            <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+              <h2 className="text-xl font-bold">Languages</h2>
+              <ul className="mt-6 flex flex-col divide-y divide-white/10">
+                {languages.map((lang) => (
+                  <li
+                    key={lang.name}
+                    className="flex items-center justify-between py-3"
+                  >
+                    <span className="font-medium">{lang.name}</span>
+                    <span className="text-sm text-white/50">{lang.level}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </FadeIn>
         </section>
 
-        {/* Footer */}
-        <footer className="text-center text-xs sm:text-sm text-muted-foreground">
+        {/* Contact */}
+        <section className="mx-auto w-full max-w-6xl px-6 pb-28">
           <FadeIn>
-            <p>alexvicarpio@gmail.com</p>
-            <p className="pt-1">
-              © {new Date().getFullYear()} Àlex Vicente Carpio
-            </p>
+            <div className="gradient-border flex flex-col items-center gap-6 p-10 text-center sm:p-14">
+              <h2 className="max-w-2xl text-3xl font-extrabold tracking-tight text-balance sm:text-5xl">
+                Let&apos;s build{" "}
+                <span className="text-gradient">something</span> together.
+              </h2>
+              <p className="max-w-lg text-lg text-white/60">
+                Got a project, a game idea or just want to say hi? My inbox is
+                open.
+              </p>
+              <a
+                href="mailto:alexvicarpio@gmail.com"
+                className="inline-flex h-14 items-center gap-2 rounded-full bg-gradient-to-r from-[var(--brand-pink)] to-[var(--brand-red)] px-7 font-semibold shadow-[0_10px_40px_-10px_var(--brand-red)] transition-transform hover:scale-[1.03]"
+              >
+                <Mail className="h-5 w-5" /> alexvicarpio@gmail.com
+              </a>
+            </div>
           </FadeIn>
-        </footer>
-      </div>
+        </section>
+      </main>
+
+      <SiteFooter
+        links={[
+          { label: "Coming Games", href: "/cominggames" },
+          {
+            label: "LinkedIn",
+            href: "https://www.linkedin.com/in/alex-vicente-carpio/",
+          },
+          { label: "GitHub", href: "https://github.com/avicarpio" },
+        ]}
+      />
     </div>
   )
 }

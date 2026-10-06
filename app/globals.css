@@ -47,73 +47,49 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-:root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.508 0.118 165.612);
-    --primary-foreground: oklch(0.979 0.021 166.113);
-    --secondary: oklch(0.967 0.001 286.375);
-    --secondary-foreground: oklch(0.21 0.006 285.885);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.875rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.596 0.145 163.225);
-    --sidebar-primary-foreground: oklch(0.979 0.021 166.113);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
-}
-
+:root,
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.432 0.095 166.913);
-    --primary-foreground: oklch(0.979 0.021 166.113);
-    --secondary: oklch(0.274 0.006 286.033);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    /* One dark identity for the whole site, shared with Coming Games:
+       night blue, with the app's pink-to-amber accent and purple glows. */
+    --background: oklch(0.13 0.02 280);
+    --foreground: oklch(0.97 0.005 280);
+    --card: oklch(0.18 0.025 282);
+    --card-foreground: oklch(0.97 0.005 280);
+    --popover: oklch(0.18 0.025 282);
+    --popover-foreground: oklch(0.97 0.005 280);
+    --primary: oklch(0.66 0.2 12);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.24 0.03 285);
+    --secondary-foreground: oklch(0.95 0.005 280);
+    --muted: oklch(0.22 0.025 284);
+    --muted-foreground: oklch(0.72 0.02 280);
+    --accent: oklch(0.24 0.03 285);
+    --accent-foreground: oklch(0.97 0.005 280);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.696 0.17 162.48);
-    --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --border: oklch(1 0 0 / 9%);
+    --input: oklch(1 0 0 / 14%);
+    --ring: oklch(0.66 0.2 12 / 60%);
+    --chart-1: oklch(0.7 0.19 12);
+    --chart-2: oklch(0.8 0.15 75);
+    --chart-3: oklch(0.55 0.18 295);
+    --chart-4: oklch(0.45 0.1 285);
+    --chart-5: oklch(0.3 0.05 285);
+    --radius: 1rem;
+    --sidebar: oklch(0.18 0.025 282);
+    --sidebar-foreground: oklch(0.97 0.005 280);
+    --sidebar-primary: oklch(0.66 0.2 12);
+    --sidebar-primary-foreground: oklch(0.99 0 0);
+    --sidebar-accent: oklch(0.24 0.03 285);
+    --sidebar-accent-foreground: oklch(0.97 0.005 280);
+    --sidebar-border: oklch(1 0 0 / 9%);
+    --sidebar-ring: oklch(0.66 0.2 12 / 60%);
+
+    /* Brand colours, the same ones the app uses */
+    --brand-pink: #ff5b6e;
+    --brand-red: #e94560;
+    --brand-amber: #ffc542;
+    --brand-purple: #6c3fb5;
+    --brand-night: #07080f;
 }
 
 @layer base {
@@ -126,6 +102,55 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
-    scroll-padding-top: 3.5rem;
+    scroll-padding-top: 5rem;
     }
+}
+
+/* Pink-to-amber text, as in the app's highlights */
+.text-gradient {
+  background-image: linear-gradient(100deg, var(--brand-pink), var(--brand-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* A faint dot grid that fades out towards the edges */
+.bg-dots {
+  background-image: radial-gradient(oklch(1 0 0 / 7%) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* A card with a hairline gradient border */
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, oklch(0.7 0.19 12 / 55%), oklch(0.55 0.18 295 / 35%), oklch(1 0 0 / 6%)) border-box;
+  border: 1px solid transparent;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float-tilted {
+  0%, 100% { transform: rotate(-8deg) translateY(0); }
+  50% { transform: rotate(-8deg) translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 oklch(0.8 0.15 75 / 55%); }
+  100% { box-shadow: 0 0 0 10px oklch(0.8 0.15 75 / 0%); }
+}
+
+.animate-float { animation: float 7s ease-in-out infinite; }
+.animate-float-tilted { animation: float-tilted 8s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 1.8s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-tilted,
+  .animate-pulse-ring { animation: none; }
 }
