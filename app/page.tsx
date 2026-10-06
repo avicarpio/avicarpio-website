@@ -287,7 +287,7 @@ export default function Page() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/cominggames/icon.png"
+              src="/cominggames/icon-v2.png"
               alt=""
               className="h-7 w-7 rounded-lg"
             />
@@ -351,7 +351,7 @@ export default function Page() {
                 <div className="relative flex items-center gap-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/cominggames/icon.png"
+                    src="/cominggames/icon-v2.png"
                     alt="Coming Games icon"
                     className="h-14 w-14 rounded-2xl shadow-lg"
                   />

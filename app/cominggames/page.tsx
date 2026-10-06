@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     description:
       "Every upcoming game, with reminders on launch day. Now on Google Play.",
     images: [
-      { url: "/cominggames/feature-graphic.png", width: 1024, height: 500 },
+      { url: "/cominggames/feature-graphic-v2.png", width: 1024, height: 500 },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/cominggames/feature-graphic.png"],
+    images: ["/cominggames/feature-graphic-v2.png"],
   },
 }
 
@@ -189,7 +189,7 @@ export default function ComingGamesPage() {
             </Link>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/cominggames/icon.png"
+              src="/cominggames/icon-v2.png"
               alt=""
               className="h-8 w-8 rounded-[0.6rem]"
             />
@@ -273,7 +273,7 @@ export default function ComingGamesPage() {
               <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1b1c27]/90 p-3.5 shadow-2xl backdrop-blur-xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/cominggames/icon.png"
+                  src="/cominggames/icon-v2.png"
                   alt=""
                   className="h-10 w-10 shrink-0 rounded-xl"
                 />
@@ -485,7 +485,7 @@ export default function ComingGamesPage() {
               <div className="relative flex flex-col items-center gap-6">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/cominggames/icon.png"
+                  src="/cominggames/icon-v2.png"
                   alt="Coming Games icon"
                   className="h-20 w-20 rounded-[1.4rem] shadow-2xl ring-4 ring-white/20"
                 />
