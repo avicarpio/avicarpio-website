@@ -169,7 +169,10 @@ export const log: LogEntry[] = [
     summary:
       "A retro game made in GB Studio and wrapped in a JavaScript emulator, with touch controls and gamepad support.",
     tech: ["GB Studio", "JavaScript"],
-    links: [{ label: "GitHub", href: gh("Gameboy-Project-Island") }],
+    links: [
+      { label: "Play it", href: "https://avicarpio.github.io/Gameboy-Project-Island/" },
+      { label: "GitHub", href: gh("Gameboy-Project-Island") },
+    ],
     color: "#a3e635",
     stars: 1,
   },
