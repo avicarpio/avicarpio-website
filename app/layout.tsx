@@ -1,11 +1,19 @@
 import type { Metadata } from "next"
-import { Geist_Mono, Outfit } from "next/font/google"
+import { Geist, Geist_Mono, Instrument_Serif, Outfit } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
+// Outfit stays the sans of Coming Games' page; the home page uses Geist with Instrument Serif
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist" })
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -19,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s · Àlex Vicente Carpio",
   },
   description:
-    "Software engineer specialised in Unity and frontend. Maker of Coming Games, an Android app to never miss a game release.",
+    "Software engineer in Barcelona. A running log of the apps, games, mods and data stories I make: oncodata.info, Coming Games and more.",
 }
 
 export default function RootLayout({
@@ -35,11 +43,13 @@ export default function RootLayout({
         "dark antialiased",
         fontMono.variable,
         "font-sans",
-        outfit.variable
+        outfit.variable,
+        geist.variable,
+        serif.variable
       )}
     >
       <body className="bg-[var(--brand-night)]">
-        {/* One dark identity for the whole site, shared with Coming Games */}
+        {/* Dark only: the home page is neutral, Coming Games' page keeps its own colours */}
         <ThemeProvider forcedTheme="dark">{children}</ThemeProvider>
       </body>
     </html>
