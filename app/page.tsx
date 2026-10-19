@@ -358,28 +358,29 @@ export default function Page() {
         {/* Hero */}
         <section id="top" className="mx-auto w-full max-w-6xl px-6 pt-20 pb-16 sm:pt-28">
           <FadeIn>
-            <p className="flex items-center gap-2 text-sm text-[var(--muted)]">
-              <MapPin className="h-3.5 w-3.5" /> Barcelona · Software Engineer at
-              Watchity
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[var(--muted)]">
+              <span className="font-medium text-[var(--paper)]">
+                Àlex Vicente Carpio
+              </span>
+              <span aria-hidden>·</span>
+              <MapPin className="h-3.5 w-3.5" /> Software engineer in Barcelona
             </p>
           </FadeIn>
           <FadeIn delay={80}>
             <h1 className="mt-6 max-w-4xl text-5xl leading-[1.04] font-semibold tracking-tight text-balance sm:text-7xl">
-              I build things for screens:{" "}
+              I make the things{" "}
               <span className="font-display font-normal text-[var(--paper)]/90 italic">
-                apps, games, mods
-              </span>{" "}
-              and{" "}
-              <span className="font-display font-normal text-[var(--paper)]/90 italic">
-                data stories.
+                I wish existed.
               </span>
             </h1>
           </FadeIn>
           <FadeIn delay={160}>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-pretty text-[var(--muted)]">
-              I&apos;m Àlex Vicente Carpio, a software engineer specialised in Unity
-              and frontend, with a soft spot for projects that push a little
-              further than they should. This page is a running log of what I make.
+              A site that makes cancer statistics readable. An app so I never
+              miss a game release. The first music mod for Metal: Hellsinger. A
+              bot that saved people hours during the vaccine rollout. By day I
+              build Unity and frontend apps at Watchity; this page is the log of
+              everything else.
             </p>
           </FadeIn>
           <FadeIn delay={240}>
