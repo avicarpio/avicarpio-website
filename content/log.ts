@@ -87,6 +87,30 @@ export const log: LogEntry[] = [
     featured: true,
   },
   {
+    slug: "war-is-a-racket",
+    date: "2026-05",
+    kind: "Game jam",
+    title: "War is a racket",
+    tagline: "A story in under five minutes",
+    summary:
+      "Made with Albert Artigas in nine days for the first edition of The Shorter, The Better, a jam for short narrative games that last five minutes at most. A side-scroller you play in the browser, where the scenery transforms as the story behind the phrase unfolds. No generative AI, as the jam's rules asked.",
+    highlights: ["#21 for story out of 82 entries"],
+    tech: ["Unity", "WebGL"],
+    links: [
+      { label: "Play it", href: "https://avicarpio.itch.io/war-is-a-racket" },
+      {
+        label: "Jam entry",
+        href: "https://itch.io/jam/the-shorter-the-better/rate/4605432",
+      },
+    ],
+    color: "#ef5a4a",
+    media: {
+      image: "/log/war-is-a-racket/cover.webp",
+      alt: "War is a racket: an old pickup truck driving through a ruined, dimly lit city",
+    },
+    featured: true,
+  },
+  {
     slug: "brickgodot",
     date: "2024-05",
     kind: "Game",

@@ -185,7 +185,7 @@ function Media({ entry, priority }: { entry: LogEntry; priority?: boolean }) {
   const m = entry.media
   if (!m) return null
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[var(--line)] bg-black">
+    <div className="relative self-start overflow-hidden rounded-2xl border border-[var(--line)] bg-black">
       {m.video ? (
         <video
           src={m.video}
@@ -292,7 +292,7 @@ function Entry({ entry }: { entry: LogEntry }) {
         <p className="max-w-2xl leading-relaxed text-pretty text-[var(--muted)]">
           {entry.summary}
         </p>
-        {entry.highlights && !featured && (
+        {entry.highlights && (
           <ul className="flex flex-col gap-1.5">
             {entry.highlights.map((h) => (
               <li
