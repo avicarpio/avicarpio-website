@@ -310,7 +310,24 @@ function Entry({ entry }: { entry: LogEntry }) {
         )}
         {entry.press && (
           <p className="text-sm text-[var(--faint)]">
-            Covered by {entry.press.join(", ")}
+            Covered by{" "}
+            {entry.press.map((p, i) => (
+              <span key={typeof p === "string" ? p : p.href}>
+                {i > 0 && (i === entry.press!.length - 1 ? " and " : ", ")}
+                {typeof p === "string" ? (
+                  p
+                ) : (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--paper)]/70 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60"
+                  >
+                    {p.label}
+                  </a>
+                )}
+              </span>
+            ))}
           </p>
         )}
         <Tags items={entry.tech} />

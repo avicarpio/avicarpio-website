@@ -23,7 +23,8 @@ export type LogEntry = {
   color: string
   media?: { image?: string; video?: string; poster?: string; alt: string }
   icon?: string
-  press?: string[]
+  /** who covered it: a name, or a name with a link */
+  press?: (string | LogLink)[]
   stars?: number
   featured?: boolean
 }
@@ -110,7 +111,21 @@ export const log: LogEntry[] = [
       "Custom audio injected into the proprietary .bank format",
       "Plays with the beat-matching score, not just as background music",
     ],
-    press: ["PCGamesN", "TheGamer", "Reddit", "the game's official Twitter"],
+    press: [
+      {
+        label: "PCGamesN",
+        href: "https://www.pcgamesn.com/metal-hellsinger/mod-sweet-home-alabama",
+      },
+      "TheGamer",
+      {
+        label: "Reddit",
+        href: "https://www.reddit.com/r/MetalHellsinger/comments/xhoo6t/sweet_home_alabama_mod_download/",
+      },
+      {
+        label: "the game's official X account",
+        href: "https://x.com/MetalHellsinger/status/1571833815663869952",
+      },
+    ],
     tech: ["FMOD Studio", "Reverse engineering"],
     links: [{ label: "GitHub", href: gh("Metal_Hellsinger_Mod_SweetHome") }],
     color: "#a78bfa",
@@ -138,7 +153,10 @@ export const log: LogEntry[] = [
     summary:
       "A mod on the official Factorio Mod Portal: keyboard shortcuts to change the game speed, with safe limits, six keyboard layouts and a reset on new games.",
     tech: ["Lua", "Factorio API"],
-    links: [{ label: "GitHub", href: gh("Factorio-Time-Control-Mod") }],
+    links: [
+      { label: "Mod Portal", href: "https://mods.factorio.com/mod/timeSpeed" },
+      { label: "GitHub", href: gh("Factorio-Time-Control-Mod") },
+    ],
     color: "#fbbf24",
     stars: 1,
   },
