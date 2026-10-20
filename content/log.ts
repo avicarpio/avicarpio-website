@@ -123,6 +123,26 @@ export const log: LogEntry[] = [
     color: "#7dd3a8",
   },
   {
+    slug: "plants-vs-jordis",
+    date: "2024-04",
+    kind: "Game jam",
+    title: "Plants vs Jordis",
+    tagline: "Save the roses from Sant Jordi",
+    summary:
+      "Made as Botzilla Games for the Sant Jordi Jam 2024. The Dragon is the kingdom's hardest-working farmer, and Sant Jordi is coming: help him grow as many roses as he can while you keep the knight and the princess from trampling the pots. I programmed it with Sara Martí, with art by Àlex Cabezas and design by Manel López. The code is open source.",
+    tech: ["Unity", "WebGL", "Windows", "Linux"],
+    links: [
+      { label: "Play it", href: "https://sara16.itch.io/plants-vs-jordis" },
+      { label: "GitHub", href: "https://github.com/BotzillaGames/DracGranger" },
+    ],
+    color: "#e5484d",
+    media: {
+      image: "/log/plants-vs-jordis/cover.webp",
+      alt: "Plants vs Jordis: the Dragon farmer by a field of flower pots",
+    },
+    featured: true,
+  },
+  {
     slug: "metal-hellsinger",
     date: "2022-09",
     kind: "Game mod",
@@ -199,6 +219,40 @@ export const log: LogEntry[] = [
     ],
     color: "#a3e635",
     stars: 1,
+  },
+  {
+    slug: "blind-fish",
+    date: "2021-02",
+    kind: "Game",
+    title: "Blind Fish",
+    tagline: "Alone, lost, and surrounded by water",
+    summary:
+      "A short, atmospheric horror game in low-poly 3D and pixel art: you're trapped with no way out, and something you can't see is trying to reach you. Made with the Fee Stuck Studios team: Ricard Juan, Joel López, Joan Lluís Mudarra and Charlie Bluu. Rated 5 out of 5 on itch.io.",
+    tech: ["Windows", "Low-poly 3D", "Pixel art"],
+    links: [{ label: "Get it on itch.io", href: "https://feestuckstudio.itch.io/blind-fish" }],
+    color: "#d4d4d8",
+    media: {
+      image: "/log/blind-fish/cover.webp",
+      alt: "Blind Fish: a pixel-art figure in a dark, black and white 3D room",
+    },
+    featured: true,
+  },
+  {
+    slug: "niot",
+    date: "2020-06",
+    kind: "Game jam",
+    title: "NIOT: Now is Our Time",
+    tagline: "A game that teaches how to stop the spread",
+    summary:
+      "Made for the Fight Covid-19 Game Jam by GameBCN and Socialpoint, as the team We Love Challenge with Ricard Juan, Joel López and Joan Lluís Mudarra. An educational puzzle game for Android: it's a possible future where the virus could go worldwide, and each level's mechanics teach one of the measures that keep it from spreading.",
+    tech: ["Android"],
+    links: [{ label: "Get it on itch.io", href: "https://feestuckstudio.itch.io/niot" }],
+    color: "#f2c94c",
+    media: {
+      image: "/log/niot/cover.webp",
+      alt: "NIOT: the title over a low-poly Earth",
+    },
+    featured: true,
   },
   {
     slug: "blackjack",
